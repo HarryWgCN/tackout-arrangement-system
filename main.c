@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+#include<process.h> 
+#include"Global Variables.h"/*全局变量头文件*/
+#include"functions.h"/*被调函数声明头文件*/
+#include"egg.h"
+#include"constants.h"
+#include"drawing_functions.h"
+int main(void) 
+{
+	HANDLE operate;
+	order_number=0;
+	end=0;
+	current_add_rider=0;
+	time=0;
+	riderhead=NULL;
+	orderhead=NULL;
+	draw_area();
+	ridernumber1(money(riderhead),riderhead);
+	move_riders();
+	exhibit_data();
+	operate==(HANDLE)_beginthreadex(NULL,0,operating,NULL,0,NULL);
+	FILE *file_ptr;
+	file_ptr=fopen("sales.txt","r");
+	if(!file_ptr)
+	{
+		printf("can not open file\n");
+		Sleep(sleep_time);
+		printf("1"); 
+		route_move_status();
+		printf("2");
+		ridernumber1(money(riderhead),riderhead);
+		printf("3");
+		output(riderhead);
+		printf("4");
+		output2(riderhead);
+		printf("5");
+		move_riders();
+		if(time>0)
+		{
+			clear_exhibit_data();
+		}
+		exhibit_data();
+	}
+	row=get_row()+2;
+	Sleep(1000);
+	/*for(;;time++)
+	{
+		Sleep(2000);
+		route_move_status();
+		ridernumber1(money(riderhead),riderhead);
+		output(riderhead);
+		output2(riderhead);
+		move_riders();
+		//if(time>0)
+		{
+			clear_exhibit_data();
+		}
+		exhibit_data();
+	}*/ 
+	for(time=1,rider_number=2,order_number=0;;)
+	/*时间初始为0，资金初始为1000，骑手数量为零*/
+	{
+		orderhead=malloc(sizeof(struct order));
+		/*动态分配订单链表头*/
+	    fscanf(file_ptr, "%d%d%d%d%d%d",&orderhead->number,&orderhead->ordertime,&orderhead->food_locationx,&orderhead->food_locationy,&orderhead->destinationx,&orderhead->destinationy);
+		orderhead->next=NULL;
+		if(orderhead->ordertime==time)
+		{
+			order_by_area(orderhead);
+			/*其他模块加在上面*/
+		}
+		else
+		{
+			for(;orderhead->ordertime!=time;time++)
+			{	
+				Sleep(sleep_time);
+				route_move_status();
+				ridernumber1(money(riderhead),riderhead);
+				output(riderhead);
+				output2(riderhead);
+				move_riders();
+				if(time>0)
+				{
+					clear_exhibit_data();
+				}
+				exhibit_data();
+				/*其他模块加在上面*/
+			}
+			/*在下一单的等待时间中，不再进行派单活动*/ 
+			order_by_area(orderhead);
+			//route_move_status();
+		}
+	}
+	WaitForSingleObject(operate,INFINITE);
+	CloseHandle(operate);
+	fclose(file_ptr);
+	return 0;
+}

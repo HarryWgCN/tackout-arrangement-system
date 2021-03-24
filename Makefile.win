@@ -1,0 +1,91 @@
+# Project: Delivering
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = add_rider.o draw_area.o operating.o exhibit_data.o fund.o "get\ row.o" get_len.o input.o main.o move.o move_riders.o new_result_demands.o order_distribute.o output.o output2.o path.o "rider\ cost.o" route.o status.o transfer.o clear_exhibit_data.o add_mission.o
+LINKOBJ  = add_rider.o draw_area.o operating.o exhibit_data.o fund.o "get row.o" get_len.o input.o main.o move.o move_riders.o new_result_demands.o order_distribute.o output.o output2.o path.o "rider cost.o" route.o status.o transfer.o clear_exhibit_data.o add_mission.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc libegg22.a libegg22.a -m32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = Delivering.exe
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+add_rider.o: add_rider.c
+	$(CC) -c add_rider.c -o add_rider.o $(CFLAGS)
+
+draw_area.o: draw_area.c
+	$(CC) -c draw_area.c -o draw_area.o $(CFLAGS)
+
+operating.o: operating.c
+	$(CC) -c operating.c -o operating.o $(CFLAGS)
+
+exhibit_data.o: exhibit_data.c
+	$(CC) -c exhibit_data.c -o exhibit_data.o $(CFLAGS)
+
+fund.o: fund.c
+	$(CC) -c fund.c -o fund.o $(CFLAGS)
+
+"get\ row.o": get\ row.c
+	$(CC) -c "get row.c" -o "get row.o" $(CFLAGS)
+
+get_len.o: get_len.c
+	$(CC) -c get_len.c -o get_len.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+move.o: move.c
+	$(CC) -c move.c -o move.o $(CFLAGS)
+
+move_riders.o: move_riders.c
+	$(CC) -c move_riders.c -o move_riders.o $(CFLAGS)
+
+new_result_demands.o: new_result_demands.c
+	$(CC) -c new_result_demands.c -o new_result_demands.o $(CFLAGS)
+
+order_distribute.o: order_distribute.c
+	$(CC) -c order_distribute.c -o order_distribute.o $(CFLAGS)
+
+output.o: output.c
+	$(CC) -c output.c -o output.o $(CFLAGS)
+
+output2.o: output2.c
+	$(CC) -c output2.c -o output2.o $(CFLAGS)
+
+path.o: path.c
+	$(CC) -c path.c -o path.o $(CFLAGS)
+
+"rider\ cost.o": rider\ cost.c
+	$(CC) -c "rider cost.c" -o "rider cost.o" $(CFLAGS)
+
+route.o: route.c
+	$(CC) -c route.c -o route.o $(CFLAGS)
+
+status.o: status.c
+	$(CC) -c status.c -o status.o $(CFLAGS)
+
+transfer.o: transfer.c
+	$(CC) -c transfer.c -o transfer.o $(CFLAGS)
+
+clear_exhibit_data.o: clear_exhibit_data.c
+	$(CC) -c clear_exhibit_data.c -o clear_exhibit_data.o $(CFLAGS)
+
+add_mission.o: add_mission.c
+	$(CC) -c add_mission.c -o add_mission.o $(CFLAGS)
